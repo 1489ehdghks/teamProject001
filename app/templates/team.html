@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Phoenix001</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Poppins&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="large-font">
+        <p>드림어스는 음악을 매개로 창작자, 사용자 모두<BR>
+            다양한 꿈을 꿀 수 있는 다채로운 세상을 만듭니다.</p>
+    </div>
+
+    <div class="small-font">
+        <p class="noto-sans-kr">창작자들이 꿈꾸는 열린문화, 사용자들이 꿈꾸는 다채로운 경험을<br>
+            취향의 차이를 존중하는 문화를 만들어갑니다.</p>
+    </div>
+
+
+
+    <div class="text-center mt-3">
+        <a href="/create_team_member" class="btn btn-primary">Add</a>
+    </div>
+    <main>
+
+
+        <div class="portraits-container">
+            <div class="portrait">
+                {% for member in team_members %}
+
+                <div class="member-card" data-id="{{ member.id }}">
+                    <img src="{{ url_for('static', filename='images/' + member.image_url) }}">
+                    <p class="p-name">{{ member.username }}</p>
+                    <p class="p-text">{{ member.mbti }}</p>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <div class="gr_box">
+        <div class='photobox'>
+        </div>
+    </div>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+
+        //멤버 선택시 하단에 버튼 생성 및 gr box 정보 업데이트
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.member-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    const memberId = this.getAttribute('data-id');
+
+                    //짝수번 클릭 시 선택 취소로직
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        const photobox = document.querySelector('.gr_box .photobox');
+                        photobox.innerHTML = ''; // gr_box 내용을 초기화합니다.
+                        return; // 이벤트 처리를 여기서 종료합니다.
+                    }
+
+                    // 다른 카드가 선택된 경우, 모든 카드의 'selected' 클래스를 제거합니다.
+                    document.querySelectorAll('.member-card.selected').forEach(selectedCard => {
+                        selectedCard.classList.remove('selected');
+                    });
+
+                    // 현재 카드에 'selected' 클래스를 추가하여 선택 상태로 만듭니다.
+                    this.classList.add('selected');
+                    const memberName = this.querySelector('.p-name').textContent;
+                    const memberMbti = this.querySelector('.p-text').textContent;
+                    const memberImage = this.querySelector('img').getAttribute('src');
+
+                    // gr_box 내부의 정보 업데이트
+                    const photobox = document.querySelector('.gr_box .photobox');
+                    photobox.innerHTML = `
+                        <img src="${memberImage}" alt="Member Image" style="width: 100px; height: 100px;">
+                        <p>${memberName}</p>
+                        <p>${memberMbti}</p>
+                        <button class="btn btn-primary edit-btn" data-id="${memberId}">Edit</button>
+                        <button class="btn btn-danger delete-btn" data-id="${memberId}">Delete</button>
+                    `;
+
+                    // Delete 버튼 이벤트 리스너 다시 바인딩
+                    photobox.querySelector('.delete-btn').addEventListener('click', function (event) {
+                        event.stopPropagation();
+                        fetch(`/delete_team_member/${memberId}`, { method: 'DELETE' })
+                            .then(response => {
+                                if (response.ok) {
+                                    card.remove(); // 멤버 카드 UI에서 제거
+                                    photobox.innerHTML = ''; // photobox 내용 지움
+                                } else {
+                                    alert('Failed to delete member.');
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                    });
+
+
+
+                    // Edit 버튼 이벤트 리스너 추가
+                    photobox.querySelector('.edit-btn').addEventListener('click', function (event) {
+                        event.stopPropagation(); // 이벤트 버블링 방지
+                        window.location.href = `/edit_member/${memberId}`; // 멤버 수정 페이지로 이동
+                    });
+
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

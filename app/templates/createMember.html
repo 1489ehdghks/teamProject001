@@ -1,0 +1,41 @@
+<!-- createMember.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Team Member</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Add New Team Member</h1>
+        <form action="/create_team_member" method="post" class="mt-3">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="image_url" class="form-label">Image URL</label>
+                <input type="text" class="form-control" id="image_url" name="image_url" placeholder="Image URL" required>
+            </div>
+            <div class="mb-3">
+                <label for="mbti" class="form-label">MBTI</label>
+                <input type="text" class="form-control" id="mbti" name="mbti" placeholder="MBTI" required>
+            </div>
+            <div class="mb-3">
+                <label for="collabo_style" class="form-label">Collaboration Style</label>
+                <input type="text" class="form-control" id="collabo_style" name="collabo_style" placeholder="Collaboration Style" required>
+            </div>
+            <div class="mb-3">
+                <label for="advantage" class="form-label">Advantage</label>
+                <input type="text" class="form-control" id="advantage" name="advantage" placeholder="Advantage" required>
+            </div>
+            <div class="mb-3">
+                <label for="blog_url" class="form-label">Blog URL</label>
+                <input type="text" class="form-control" id="blog_url" name="blog_url" placeholder="Blog URL">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Member</button>
+        </form>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
