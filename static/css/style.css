@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Poppins&display=swap");
+
+body {
+  font-family: "Noto Sans KR", "Poppins", sans-serif;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.large-font {
+  color: rgba(14, 14, 174, 0.833);
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.small-font {
+  color: rgba(14, 14, 174, 0.833);
+  font-size: 0.75em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.portraits-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+}
+
+.p-text {
+  color: rgba(14, 14, 174, 0.833);
+  text-align: center;
+  position: relative;
+  bottom: 10px;
+}
+
+.p-name {
+  color: rgba(14, 14, 174, 0.833);
+  text-align: center;
+  position: relative;
+  bottom: 25px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.portrait {
+  width: 150px;
+  height: 150px;
+  margin: 3px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.portrait img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.noto-sans-kr {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gr_box {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(234, 234, 234),
+    rgb(255, 255, 255)
+  );
+  background-size: cover;
+  /* 이미지를 커버하도록 설정 */
+  background-position: center;
+  height: 500px;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* custom */
+.container {
+  background-color: rgb(216, 216, 219);
+  margin: 10px;
+  padding: 7px;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photobox {
+  width: 400px;
+  height: 100%;
+}
+
+.photobox img {
+  margin: 30px 0 0 30px;
+  width: 300px;
+  height: 250px;
+  border-radius: 0 150px 150px 0;
+}
+
+/* modal*/
+.modal {
+  display: none;
+  position: fixed;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.close-btn {
+  cursor: pointer;
+  color: #555;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
