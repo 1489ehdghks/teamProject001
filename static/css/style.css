@@ -101,6 +101,27 @@ button:hover {
   align-items: center;
 }
 
+/* 지현님 - button text*/
+.gr_box > button {
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+#textbox{
+    position: relative;
+    left: 600px;
+    top: 100px;
+    margin-right: 10px;
+    white-space: normal;
+    width: max-content;
+    max-width: 800px;
+}
+
+.name{
+    color: rgba(14, 14, 174, 0.833);
+}
+
 /* custom */
 .container {
   background-color: rgb(216, 216, 219);
@@ -115,6 +136,8 @@ button:hover {
 .photobox {
   width: 400px;
   height: 100%;
+  border:10px;
+  color:red;
 }
 
 .photobox img {
