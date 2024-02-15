@@ -110,13 +110,12 @@ button:hover {
 }
 
 #textbox{
-    position: relative;
-    left: 600px;
-    top: 100px;
-    margin-right: 10px;
-    white-space: normal;
-    width: max-content;
-    max-width: 800px;
+  position: relative;
+  left: 10%;
+  margin-right: 10px;
+  white-space: normal;
+  width: max-content;
+  max-width: 800px;
 }
 
 .name{
