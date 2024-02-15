@@ -23,10 +23,10 @@
 
   <body>
     <!-- modal -->
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end m-5 mt-5">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            추가
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="bi bi-person-plus"></i>
         </button>
       </div>
       
@@ -81,8 +81,8 @@
     <!-- main -->
     <div class="large-font">
       <p>
-        불사조, 불타오르는 열정을 전합니다! 우리는 그저 팀이 아닌, 혁신과 도전의
-        심장입니다.
+        불사조, 불타오르는 열정을 전합니다! <br />
+        우리는 그저 팀이 아닌, 혁신과 도전의 심장입니다.
       </p>
     </div>
 
@@ -98,7 +98,7 @@
       {% for mem in data %}
       <div class="portrait">
         <img
-          src="{{member.image_url}}"
+          src="{{mem.image_url}}"
           alt="Portrait 1"
         />
         <p class="p-text" span="poppins-regular">{{mem.mbti}}</p>
@@ -115,8 +115,6 @@
         />
       </div>
       <div class="photobox">
-        <button type="button" class="btn btn-dark">삭제</button>
-        <button type="button" class="btn btn-light">수정</button>
         <div id="textbox">
           <h3 class="name">Member.username</h3>
           <p><br /></p>
@@ -126,6 +124,8 @@
           <p><br /></p>
           <p class="blogurl">Member.blog_url</p>
         </div>
+        <button type="button" class="btn btn-light"><i class="bi bi-arrow-repeat"></i></button>
+        <button type="button" class="btn btn-dark"><i class="bi bi-trash3"></i></button>
       </div>
     </div>
 
