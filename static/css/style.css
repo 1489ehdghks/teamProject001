@@ -113,7 +113,7 @@ button:hover {
 
 .textbox{
   position: relative;
-  left: 250px;
+  left: 10%;
   margin-right: 10px;
   white-space: normal;
   width: max-content;
