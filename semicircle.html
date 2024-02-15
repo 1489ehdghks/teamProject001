@@ -15,69 +15,68 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Poppins&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
 
   <body>
     <!-- modal -->
-    <button onclick="openModal()">추가</button>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        음악 추가
-    </button>
-
-    <div class="modal" id="myModal">
-        <form action="{{url_for('member_create')}}" method="post">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            추가
+        </button>
+      </div>
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
-            <h2>Contents</h2>
-
-            <div class="form-group">
-                <label for="InputName">Name</label>
-                <input type="text" id="InputName" name="username" />
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">팀원 추가</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url_for('member_create') }}" method='post'>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">이름</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name='username'>
+                            <div id="emailHelp" class="form-text">추가할 팀원의 이름을 넣어주세요.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">MBTI</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name='mbti'>
+                            <div id="emailHelp" class="form-text">팀원의 MBTI을 넣어주세요.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">역할</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name='collabo_style'>
+                            <div id="emailHelp" class="form-text">팀원이 맡은 역할을 넣어주세요.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">장점</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name='advantage'>
+                            <div id="emailHelp" class="form-text">팀원의 장점을 넣어주세요.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">프로필 이미지</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name='image_url'>
+                            <div id="emailHelp" class="form-text">팀원의 프로필 이미지 URL을 넣어주세요.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">블로그</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name='blog_url'>
+                            <div id="emailHelp" class="form-text">팀원의 블로그 URL을 넣어주세요.</div>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="InputImage_url">Image_URL</label>
-                <input type="text" id="InputImage_url" name="username" />
-            </div>
-
-            <div class="form-group">
-                <label for="InputMbti">MBTI</label>
-                <input type="text" id="InputMbti" name="username" />
-            </div>
-
-            <div class="form-group">
-                <label for="InputCol_type">Collaboration_type</label>
-                <input type="text" id="InputCol_type" name="username" />
-            </div>
-
-            <div class="form-group">
-                <label for="InputAdvantage">Advantage</label>
-                <input type="text" id="InputAdvantage" name="username" />
-            </div>
-
-            <div class="form-group">
-                <label for="InputBlog_url">Blog_URL</label>
-                <input type="text" id="InputBlog_url" name="username" />
-            </div>
-
-            <button class="submit-btn" type="submit">Submit</button>
-            </div>
-      </form>
-    </div>
-
-    <div class="overlay" id="overlay" onclick="closeModal()"></div>
-
-    <script>
-      function openModal() {
-        document.getElementById("myModal").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
-      }
-
-      function closeModal() {
-        document.getElementById("myModal").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
-      }
-    </script>
+        </div>
+      </div>
+    
 
     <!-- main -->
     <div class="large-font">
@@ -129,5 +128,9 @@
         </div>
       </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
   </body>
 </html>
