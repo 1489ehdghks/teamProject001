@@ -45,14 +45,14 @@ button:hover {
   color: rgba(14, 14, 174, 0.833);
   text-align: center;
   position: relative;
-  bottom: 10px;
+  bottom: -4px;
 }
 
 .p-name {
   color: rgba(14, 14, 174, 0.833);
   text-align: center;
   position: relative;
-  bottom: 25px;
+  bottom: 20px;
   font-size: large;
   font-weight: bold;
 }
@@ -60,10 +60,13 @@ button:hover {
 .portrait {
   width: 150px;
   height: 150px;
-  margin: 3px;
+  margin: 15px;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   position: relative;
+  filter: grayscale(100%);
+  transition: filter 0.5s;
 }
 
 .portrait img {
@@ -100,6 +103,10 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.portrait:hover {
+  filter: grayscale(0%);
 }
 
 /* 지현님 - button text*/
@@ -141,9 +148,9 @@ margin-top: 50px;
 }
 
 .photobox img {
-  margin: 30px 0 0 30px;
-  width: 300px;
-  height: 250px;
+  margin: 0px 0 0 -100px;
+  width: 350px;
+  height: 350px;
   border-radius: 0 150px 150px 0;
 }
 
