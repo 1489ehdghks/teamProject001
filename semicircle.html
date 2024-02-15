@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
 
     <title>Phoenix Team</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,44 +20,49 @@
   <body>
     <!-- modal -->
     <button onclick="openModal()">추가</button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        음악 추가
+    </button>
 
     <div class="modal" id="myModal">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <div class="modal-content">
-        <h2>Contents</h2>
+        <form action="{{url_for('member_create')}}" method="post">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+            <h2>Contents</h2>
 
-        <div class="form-group">
-          <label for="InputName">Name</label>
-          <input type="text" id="InputName" />
-        </div>
+            <div class="form-group">
+                <label for="InputName">Name</label>
+                <input type="text" id="InputName" name="username" />
+            </div>
 
-        <div class="form-group">
-          <label for="InputImage_url">Image_URL</label>
-          <input type="text" id="InputImage_url" />
-        </div>
+            <div class="form-group">
+                <label for="InputImage_url">Image_URL</label>
+                <input type="text" id="InputImage_url" name="username" />
+            </div>
 
-        <div class="form-group">
-          <label for="InputMbti">MBTI</label>
-          <input type="text" id="InputMbti" />
-        </div>
+            <div class="form-group">
+                <label for="InputMbti">MBTI</label>
+                <input type="text" id="InputMbti" name="username" />
+            </div>
 
-        <div class="form-group">
-          <label for="InputCol_type">Collaboration_type</label>
-          <input type="text" id="InputCol_type" />
-        </div>
+            <div class="form-group">
+                <label for="InputCol_type">Collaboration_type</label>
+                <input type="text" id="InputCol_type" name="username" />
+            </div>
 
-        <div class="form-group">
-          <label for="InputAdvantage">Advantage</label>
-          <input type="text" id="InputAdvantage" />
-        </div>
+            <div class="form-group">
+                <label for="InputAdvantage">Advantage</label>
+                <input type="text" id="InputAdvantage" name="username" />
+            </div>
 
-        <div class="form-group">
-          <label for="InputBlog_url">Blog_URL</label>
-          <input type="text" id="InputBlog_url" />
-        </div>
+            <div class="form-group">
+                <label for="InputBlog_url">Blog_URL</label>
+                <input type="text" id="InputBlog_url" name="username" />
+            </div>
 
-        <button class="submit-btn" onclick="closeModal()">Submit</button>
-      </div>
+            <button class="submit-btn" type="submit">Submit</button>
+            </div>
+      </form>
     </div>
 
     <div class="overlay" id="overlay" onclick="closeModal()"></div>
@@ -71,18 +79,19 @@
       }
     </script>
 
-    <!-- modal 외 -->
+    <!-- main -->
     <div class="large-font">
       <p>
-        드림어스는 음악을 매개로 창작자, 사용자 모두<br />
-        다양한 꿈을 꿀 수 있는 다채로운 세상을 만듭니다.
+        불사조, 불타오르는 열정을 전합니다! 우리는 그저 팀이 아닌, 혁신과 도전의
+        심장입니다.
       </p>
     </div>
 
     <div class="small-font">
       <p class="noto-sans-kr">
-        창작자들이 꿈꾸는 열린문화, 사용자들이 꿈꾸는 다채로운 경험을<br />
-        취향의 차이를 존중하는 문화를 만들어갑니다.
+        4개월은 우리의 미래를 만들어나가는 소중한 시간이 될것이며, <br />
+        불사조처럼 불타오르는 열정들로 우리의 프로그래밍 여정을
+        완성해나가겠습니다.
       </p>
     </div>
 
@@ -107,7 +116,17 @@
         />
       </div>
       <div class="photobox">
-        <p>팀원 상세 정보</p>
+        <button type="button" class="btn btn-dark">삭제</button>
+        <button type="button" class="btn btn-light">수정</button>
+        <div id="textbox">
+          <h3 class="name">Member.username</h3>
+          <p><br /></p>
+          <p class="mbti">Member.mbti</p>
+          <p class="collabo_style">Member.collabo_style</p>
+          <p class="advantage">Member.advantage</p>
+          <p><br /></p>
+          <p class="blogurl">Member.blog_url</p>
+        </div>
       </div>
     </div>
   </body>
