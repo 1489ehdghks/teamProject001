@@ -2,12 +2,14 @@
 
 <br/>
 
-### 1. 목록조회
+### 1. 팀원조회
 GET /members/<username<username>>/
 
+   Param ( username : String * 필수)
+   
 <br/>
 
-### 2. 상세 목록조회
+### 2. 상세 팀원조회
 
 
 GET /members/<username<username>>/details
