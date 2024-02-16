@@ -3,9 +3,9 @@
 <br/>
 
 ### 1. 팀원조회
-GET /members/<username<username>>/
+GET /
 
-   Param ( username : String * 필수)
+   서버 동작 시 메인페이지로 이동
    
 <br/>
 
@@ -22,7 +22,7 @@ GET /members/<username<username>>/details
 ### 3. 팀원 추가 및 수정
 
 
-POST,GET /members/create/
+POST /members/create/
 
 
        Body {
@@ -36,19 +36,15 @@ POST,GET /members/create/
        }
 
 
-   1) GET
-    
-      username으로 구별하여 기존에 username이 없으면 GET을 진행
+   1) username으로 구별하여 기존에 username이 없으면 팀원 데이터를 추가
 
 
-   3) POST
-      
-      username으로 구별하여 기존에 username이 있는 데이터면 POST를 진행.
+   2) username으로 구별하여 기존에 username이 있는 데이터면 기존 데이터를 수정
 
 <br/>
 
 ### 4. 팀원 삭제
 
-   DELETE /members/<username<username>>/delete
+   POST /members/<username<username>>/delete
    
    Param ( username : String * 필수)
