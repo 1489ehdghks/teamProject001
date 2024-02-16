@@ -1,6 +1,6 @@
 API 목록
-
-
+<br/>
+<br/>
 1. 목록조회
 GET /members/<username>/
 <br/>
@@ -13,7 +13,7 @@ GET /members/<username>/
 4. 팀원 추가 및 수정
    POST,GET /members/create/
 <br/>
-   
+<br/>
        Body {
        id (Integer,primary_key=True)
        username String(100,nullable=False)
@@ -23,7 +23,6 @@ GET /members/<username>/
        advantage String(100,nullable=False)
        blog_url String(10000,nullable=False)
        }
-
 <br/>
 <br/>
    1) GET
@@ -32,7 +31,6 @@ GET /members/<username>/
 <br/>
    2) POST
       username으로 구별하여 기존에 username이 있는 데이터면 POST를 진행.
-
 <br/>
 <br/>
 6. 팀원 삭제
