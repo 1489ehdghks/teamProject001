@@ -49,4 +49,4 @@ POST,GET /members/create/
 
    DELETE /members/<username<username>>/delete
    
-     Param ( username : String * 필수)
+   Param ( username : String * 필수)
